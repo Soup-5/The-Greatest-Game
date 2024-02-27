@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://drpgjtks1yf2a"]
+[gd_scene load_steps=8 format=3 uid="uid://drpgjtks1yf2a"]
 
 [ext_resource type="PackedScene" uid="uid://cwdvbxqdw7jru" path="res://scenes/player.tscn" id="1_bo43e"]
+[ext_resource type="Script" path="res://scripts/debug.gd" id="2_3ui15"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dvhc8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -53,6 +54,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
+script = ExtResource("2_3ui15")
 
 [node name="Stats" type="Label" parent="Debug Menu"]
 layout_mode = 2
