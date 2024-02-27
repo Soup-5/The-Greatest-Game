@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://drpgjtks1yf2a"]
+
+[ext_resource type="PackedScene" uid="uid://cwdvbxqdw7jru" path="res://scenes/player.tscn" id="1_bo43e"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dvhc8"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ufm5d"]
+sky_material = SubResource("ProceduralSkyMaterial_dvhc8")
+
+[sub_resource type="Environment" id="Environment_m2p5d"]
+background_mode = 2
+sky = SubResource("Sky_ufm5d")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_f55tg"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yn6fp"]
+points = PackedVector3Array(-5, -0.05, -5, -5, 0.05, -5, 5, -0.05, -5, -5, -0.05, 5, -5, 0.05, 5, 5, 0.05, -5, 5, -0.05, 5, 5, 0.05, 5)
+
+[node name="Game" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m2p5d")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.970796, 0.239906, 0, -0.239906, 0.970796, 0, 2.25625, 6.30057)
+
+[node name="ground" type="StaticBody3D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ground"]
+mesh = SubResource("BoxMesh_f55tg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
+shape = SubResource("ConvexPolygonShape3D_yn6fp")
+
+[node name="Player" parent="." instance=ExtResource("1_bo43e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28283, 0)
+
+[node name="Debug Menu" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="Stats" type="Label" parent="Debug Menu"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Velocity: 0
+Direction: 0
+"
