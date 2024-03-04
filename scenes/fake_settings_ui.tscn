@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bm11tvnbii8pd"]
+
+[node name="FakeSettings" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 675.0
+offset_bottom = 410.0
+color = Color(0.164706, 0.396078, 1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.08
+anchor_top = 0.216
+anchor_right = 0.945
+anchor_bottom = 1.0
+offset_left = 54.0
+offset_top = 88.56
+offset_right = 619.0
+offset_bottom = 215.56
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dumbass, this isn't the real settings, stupid ass poopy face bitch, bitchass 
+adopted piece of shit, can't even click the right settings button, I bet you
+couldn't even beat the first 2 seconds of this game if you tried, you'd
+probably have to get your big brother or some shit just to have a chance
+at it"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+offset_left = 293.0
+offset_top = 274.0
+offset_right = 370.0
+offset_bottom = 341.0
+
+[node name="Button" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+text = "OK"
