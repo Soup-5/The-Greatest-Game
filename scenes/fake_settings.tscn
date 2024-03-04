@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqnmokfnjefnj"]
+
+[ext_resource type="PackedScene" uid="uid://bm11tvnbii8pd" path="res://scenes/fake_settings_ui.tscn" id="1_ucswv"]
+
+[node name="FakeSettingsUI" type="Node2D"]
+
+[node name="Window" type="Window" parent="."]
+position = Vector2i(0, 36)
+size = Vector2i(675, 410)
+
+[node name="FakeSettings" parent="Window" instance=ExtResource("1_ucswv")]
