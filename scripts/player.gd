@@ -4,8 +4,12 @@ extends CharacterBody3D
 
 @export var move_speed: float = 5.0
 @export var jump_force: float = 5.0
+@export var mouse_sense: float = 1.0
 
 var dir: Vector2
+
+func _enter_tree() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta: float) -> void:
 	velocity.y += -gravity * delta
@@ -15,3 +19,10 @@ func _physics_process(delta: float) -> void:
 	velocity.x = dir.x * move_speed
 	velocity.z = dir.y * move_speed
 	move_and_slide()
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		rotate_y(-event.relative.x * mouse_sense * 0.001)
+
+func _exit_tree() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

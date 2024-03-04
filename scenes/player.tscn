@@ -4,8 +4,7 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a4kpj"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_3m64o"]
-size = Vector3(0.887, 1.8375, 1)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ksj0k"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_nnwt3")
@@ -16,4 +15,7 @@ mesh = SubResource("CapsuleMesh_a4kpj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00476074, 0.0359085, 0)
-shape = SubResource("BoxShape3D_3m64o")
+shape = SubResource("CapsuleShape3D_ksj0k")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
