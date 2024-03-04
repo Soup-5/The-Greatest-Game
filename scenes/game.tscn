@@ -1,9 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://drpgjtks1yf2a"]
+[gd_scene load_steps=11 format=3 uid="uid://drpgjtks1yf2a"]
 
 [ext_resource type="PackedScene" uid="uid://cwdvbxqdw7jru" path="res://scenes/player.tscn" id="1_bo43e"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_p4fty"]
 [ext_resource type="Script" path="res://scripts/debug.gd" id="2_3ui15"]
 [ext_resource type="Script" path="res://addons/cyclops_level_builder/nodes/cyclops_block.gd" id="3_4g8v0"]
 [ext_resource type="Script" path="res://addons/cyclops_level_builder/resources/convex_block_data.gd" id="4_8ku85"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6chvv"]
+font_size = 48
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xl4vy"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -43,13 +47,7 @@ active_face = -1
 face_ids = PackedInt32Array(0, 1, 2, 3, 4, 5)
 
 [node name="Game" type="Node3D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_lbds6")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
+script = ExtResource("1_p4fty")
 
 [node name="Debug Menu" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -68,6 +66,58 @@ size_flags_vertical = 0
 text = "Velocity: 0
 Direction: 0
 "
+
+[node name="Pause Menu" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Background" type="ColorRect" parent="Pause Menu"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.25098)
+
+[node name="MarginContainer" type="MarginContainer" parent="Pause Menu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 120
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause Menu/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Pause" type="Label" parent="Pause Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Pause"
+label_settings = SubResource("LabelSettings_6chvv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resume" type="Button" parent="Pause Menu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Resume"
+
+[node name="Exit" type="Button" parent="Pause Menu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Main Menu"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lbds6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_bo43e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.81176, 0)
