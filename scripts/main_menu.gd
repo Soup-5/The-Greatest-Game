@@ -36,7 +36,8 @@ func _close_game() -> void:
 	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 
 func _open_settings() -> void:
-	get_tree().change_scene_to_file('res://scenes/settings.tscn')
+	pass
+	#get_tree().change_scene_to_file('res://scenes/settings.tscn')
 
 func _fake_settings() -> void:
 	get_tree().change_scene_to_file('res://scenes/fake_settings.tscn')

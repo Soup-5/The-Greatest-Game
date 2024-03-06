@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://brgbn0bxrgl4m"]
+[gd_scene load_steps=2 format=3 uid="uid://brgbn0bxrgl4m"]
 
-[node name="Settings" type="Node2D"]
+[ext_resource type="Script" path="res://scripts/settings.gd" id="1_qf63o"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_qf63o")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.427451, 0.658824, 0.941176, 1)
