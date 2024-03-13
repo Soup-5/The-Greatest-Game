@@ -32,6 +32,10 @@ window/subwindows/embed_subwindows=false
 
 enabled=PackedStringArray("res://addons/cyclops_level_builder/plugin.cfg")
 
+[filesystem]
+
+import/fbx/enabled=false
+
 [input]
 
 move_forward={

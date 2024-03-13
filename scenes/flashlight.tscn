@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://dsfmlfhp1byqu"]
+
+[node name="Flashlight" type="MeshInstance3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

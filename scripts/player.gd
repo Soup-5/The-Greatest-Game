@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+@onready var camera := $Camera3D
 @onready var pickup_range := $Camera3D/RayCast3D
 
 @export var move_speed: float = 5.0
@@ -23,11 +24,13 @@ func _physics_process(delta: float) -> void:
 	velocity.z = dir.z * move_speed
 	move_and_slide()
 	if pickup_range.is_colliding():
-		print(pickup_range.get_collider().body.name)
+		print(pickup_range.get_collider())
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sense * 0.001)
+		camera.rotate_x(-event.relative.y * mouse_sense * 0.001)
+		camera.rotation.x = clampf(camera.rotation.x, -deg_to_rad(70), deg_to_rad(70))
 
 func _exit_tree() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
