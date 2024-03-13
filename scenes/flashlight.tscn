@@ -1,4 +1,16 @@
-[gd_scene format=3 uid="uid://dsfmlfhp1byqu"]
+[gd_scene load_steps=2 format=3 uid="uid://dkyufsch04a1t"]
 
-[node name="Flashlight" type="MeshInstance3D"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+[ext_resource type="PackedScene" uid="uid://oldopxq5fvp7" path="res://assets/flashlight.glb" id="1_r24pw"]
+
+[node name="Flashlight" type="Node3D"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0138264, 0.0330248, -0.00285149)
+light_energy = 16.0
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 100.0
+spot_angle = 30.0
+
+[node name="Flashlight" parent="." instance=ExtResource("1_r24pw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.55, -0.1, -0.4)
