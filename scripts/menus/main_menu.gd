@@ -38,7 +38,7 @@ func _close_game() -> void:
 
 func _open_settings() -> void:
 	pass
-	#get_tree().change_scene_to_file('res://scenes/settings.tscn')
+	#get_tree().change_scene_to_file('res://scenes/menus/settings.tscn')
 
 func _fake_settings() -> void:
-	get_tree().change_scene_to_file('res://scenes/fake_settings.tscn')
+	get_tree().change_scene_to_file('res://scenes/menus/fake_settings.tscn')

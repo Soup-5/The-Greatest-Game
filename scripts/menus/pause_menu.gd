@@ -16,4 +16,4 @@ func return_to_game() -> void:
 func return_to_main_menu() -> void:
 	hide()
 	get_tree().paused = false
-	get_tree().change_scene_to_file('res://scenes/main_menu.tscn')
+	get_tree().change_scene_to_file('res://scenes/menus/main_menu.tscn')
