@@ -51,6 +51,7 @@ label_settings = SubResource("LabelSettings_r74np")
 horizontal_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 508.0
 offset_top = 475.0
 offset_right = 649.0
