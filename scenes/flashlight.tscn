@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dkyufsch04a1t"]
 
 [ext_resource type="Script" path="res://scripts/flashlight.gd" id="1_kk631"]
-[ext_resource type="PackedScene" uid="uid://oldopxq5fvp7" path="res://assets/flashlight.glb" id="1_r24pw"]
+[ext_resource type="PackedScene" uid="uid://oldopxq5fvp7" path="res://assets/flashlight/flashlight.glb" id="1_r24pw"]
 
 [node name="Flashlight" type="Node3D"]
 script = ExtResource("1_kk631")

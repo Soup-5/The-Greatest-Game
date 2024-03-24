@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-@onready var camera := $Camera3D
-@onready var pickup_range := $Camera3D/RayCast3D
+@onready var head := $Head
+@onready var pickup_range := $Head/RayCast3D
 
 @export var move_speed: float = 5.0
 @export var jump_force: float = 5.0
@@ -10,9 +10,6 @@ extends CharacterBody3D
 
 var dir: Vector3
 var inventory: Array[Node]
-
-func _enter_tree() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta: float) -> void:
 	velocity.y += -gravity * delta
@@ -29,8 +26,5 @@ func _physics_process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sense * 0.001)
-		camera.rotate_x(-event.relative.y * mouse_sense * 0.001)
-		camera.rotation.x = clampf(camera.rotation.x, -deg_to_rad(70), deg_to_rad(70))
-
-func _exit_tree() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		head.rotate_x(-event.relative.y * mouse_sense * 0.001)
+		head.rotation.x = clampf(head.rotation.x, -deg_to_rad(70), deg_to_rad(70))
