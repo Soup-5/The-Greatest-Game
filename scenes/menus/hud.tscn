@@ -1,0 +1,169 @@
+[gd_scene load_steps=8 format=3 uid="uid://k83sxqpceoun"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_1qfuy"]
+[ext_resource type="Texture2D" uid="uid://4racbd7qfssy" path="res://assets/vhs_cassette_3d/vhs_cassette.png" id="2_anakg"]
+[ext_resource type="StyleBox" uid="uid://c8oo2uaayg5tj" path="res://resources/inventory_panel.tres" id="3_r4spn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1nced"]
+font_size = 24
+
+[sub_resource type="Gradient" id="Gradient_qm57n"]
+offsets = PackedFloat32Array(0, 0.3, 1)
+colors = PackedColorArray(0.705882, 0, 0, 1, 0.862745, 0.862745, 0, 1, 0.470588, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nxn2f"]
+gradient = SubResource("Gradient_qm57n")
+width = 20
+height = 180
+fill_from = Vector2(1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jlmro"]
+font_size = 24
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_1qfuy")
+
+[node name="Tape Counter" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Tape Counter"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="Tape Counter/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_anakg")
+expand_mode = 1
+
+[node name="Count" type="Label" parent="Tape Counter/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "x0"
+label_settings = SubResource("LabelSettings_1nced")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Inventory" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Inventory"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Panel" type="Panel" parent="Inventory/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_r4spn")
+
+[node name="Slot 1" type="TextureRect" parent="Inventory/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="Inventory/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_r4spn")
+
+[node name="Slot 2" type="TextureRect" parent="Inventory/HBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel3" type="Panel" parent="Inventory/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_r4spn")
+
+[node name="Slot 3" type="TextureRect" parent="Inventory/HBoxContainer/Panel3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Flashlight Charge" type="MarginContainer" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 40
+
+[node name="Charge Progress" type="TextureProgressBar" parent="Flashlight Charge"]
+layout_mode = 2
+value = 100.0
+rounded = true
+fill_mode = 3
+texture_progress = SubResource("GradientTexture2D_nxn2f")
+
+[node name="Status Popup" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 90
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Status Popup"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="Status Popup/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Status Popup/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_jlmro")
+
+[node name="Crosshair Container" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Crosshair" type="ColorRect" parent="Crosshair Container"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.6)

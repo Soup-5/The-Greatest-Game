@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody3D
 
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -6,7 +7,7 @@ extends CharacterBody3D
 @onready var pickup_range: RayCast3D = $Head/RayCast3D
 
 @export var move_speed: float = 5.0
-@export_range(0.0, 1.0) var acceleration: float = 0.1
+@export_range(0.0, 1.0) var acceleration: float = 0.05
 @export_range(0.0, 1.0) var frictional_inertia: float = 0.1
 @export var jump_force: float = 5.0
 @export var mouse_sense: float = 1.0

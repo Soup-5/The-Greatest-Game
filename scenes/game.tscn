@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfv4lotfqnr8j"]
+[gd_scene load_steps=8 format=3 uid="uid://dfv4lotfqnr8j"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_m0h4n"]
 [ext_resource type="Material" uid="uid://ct2ilse4omuqk" path="res://resources/protoype_texture.tres" id="1_rsd8p"]
 [ext_resource type="Script" path="res://scripts/menus/pause_menu.gd" id="2_dkl4k"]
 [ext_resource type="Script" path="res://scripts/menus/debug.gd" id="2_ey0o2"]
 [ext_resource type="PackedScene" uid="uid://cwdvbxqdw7jru" path="res://scenes/player.tscn" id="2_ma26v"]
+[ext_resource type="PackedScene" uid="uid://k83sxqpceoun" path="res://scenes/menus/hud.tscn" id="3_vnim8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wo0yp"]
 font_size = 36
@@ -63,6 +64,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 text = "Main Menu"
+
+[node name="HUD" parent="." instance=ExtResource("3_vnim8")]
 
 [node name="Debug Menu" type="MarginContainer" parent="."]
 offset_right = 21.0
