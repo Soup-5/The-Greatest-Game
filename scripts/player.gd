@@ -13,6 +13,7 @@ extends CharacterBody3D
 @export var mouse_sense: float = 1.0
 
 var dir: Vector3
+var tape_count: int = 0
 var inventory: Array[Item]
 
 func _physics_process(delta: float) -> void:
